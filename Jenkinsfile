@@ -1,9 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('Welcome Message') {
+    stage('Change Check') {
       steps {
-        echo 'Hello World !!'
+        git(url: 'https://github.com/rakeshthyd/jenkins', branch: 'master')
+      }
+    }
+
+    stage('Print Message') {
+      steps {
+        echo 'Hello World !!!'
       }
     }
 
